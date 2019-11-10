@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
+import MerchantList from '../views/MerchantList.vue'
+import OrderForm from '../views/OrderForm.vue'
+import Card from '../views/Card.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +32,27 @@ const routes = [
   {
     path: '*',
     redirect: '/login'
+  },
+  {
+    path: '/index',
+    name: 'Merchant List',
+    component: MerchantList,
+    meta:{
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/order/:id',
+    name: 'order',
+    component: OrderForm,
+    meta:{
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/card',
+    name: 'card',
+    component: Card
   }
 ]
 

@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <button v-on:click="logout">Log Out</button>
+    <button v-on:click="toIndex">Menu</button>
   </div>
 </template>
 
@@ -21,6 +22,9 @@ export default {
       firebase.auth().signOut().then(() => {
         this.$router.replace('login')
       })
+    },
+    toIndex: function(){
+      this.$router.replace('index')
     }
   }
 }
