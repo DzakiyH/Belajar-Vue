@@ -36,12 +36,6 @@ export default {
   name: 'BoardList',
   data () {
     return {
-      fields: [
-        { key: 'nama', label: 'Nama', sortable: true, 'class': 'text-center' },
-        { key: 'alamat', label: 'Alamat', 'class': 'text-center'},
-        { key: 'nomor', label: 'Nomer telp.', 'class': 'text-center'},
-        { key: 'status', label: 'Buka?', 'class': 'text-center' }
-      ],
       items: [],
       errors: [],
       ref: firebase.firestore().collection('merchant'),
@@ -60,29 +54,16 @@ export default {
           map: doc.data().map
         });
       });
-      console.log(this.items);
     });
   },
   methods: {
     order (item) {
       this.$router.push({ name: 'order', params: { id: item.key }})
     },
-    showModal (){
-        this.$refs['my-modal'].show()
-    },
-    routeHome (){
-      this.$router.push('home')
-    },
   }
 }
 </script>
 
 <style>
-  .table {
-    width: 96%;
-    margin: 0 auto;
-  }
-  .h2 {
-    text-align: center;
-  }
+
 </style>

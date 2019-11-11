@@ -40,7 +40,8 @@ export default {
         }
     },
     created(){
-        
+    },
+    methods:{
     }
 
 }
