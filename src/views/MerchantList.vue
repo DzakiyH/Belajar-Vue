@@ -1,4 +1,6 @@
 <template>
+<div>
+  <NavBar/>
   <b-container>
       <h2>
         Daftar Toko
@@ -17,15 +19,20 @@
       </b-col>
     </b-row>
   </b-container>
+</div>
 </template>
 
 <script>
 
 import firebase from 'firebase'
+import NavBar from '@/components/NavBar.vue'
 // import router from 'vue-router'
 
 export default {
   name: 'BoardList',
+  components: {
+    NavBar
+  },
   data () {
     return {
       items: [],

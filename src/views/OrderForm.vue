@@ -1,4 +1,6 @@
 <template>
+<div>
+<NavBar/>
 <b-container>
   <div class="detail-toko">
     <h2>Form Pesan</h2><br>
@@ -70,14 +72,19 @@
     </b-form>
   </div>
 </b-container>
+</div>
 </template>
 
 <script>
 
 import firebase from 'firebase'
+import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'ShowBoard',
+  components:{
+    NavBar
+  },
   data () {
     return {
       transactionRef: firebase.firestore().collection('transaction'),

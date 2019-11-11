@@ -1,4 +1,6 @@
 <template>
+<div>
+<NavBar/>
 <b-container>
     <h2>List Pesanan</h2>
 
@@ -6,13 +8,18 @@
         <p>kamu pesan di "{{transaction.toko}}" saat {{transaction.tanggal}}</p>
     </div>
 </b-container>
+</div>
 </template>
 
 <script>
 import firebase from 'firebase'
+import NavBar from '@/components/NavBar.vue'
 
 export default {
     name: 'OrderList',
+    components: {
+        NavBar
+    },
     data(){
         return{
             transactionRef: firebase.firestore().collection('transaction'),
