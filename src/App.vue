@@ -12,8 +12,8 @@
 
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
-              <b-nav-item>Link</b-nav-item>
-              <b-nav-item disabled>Disabled</b-nav-item>
+              <b-nav-item><router-link to="/index">Cari Toko</router-link></b-nav-item>
+              <b-nav-item><router-link to="/transactions">List Pesanan</router-link></b-nav-item>
             </b-navbar-nav>
 
             <!-- Right aligned nav items -->
@@ -84,7 +84,7 @@ export default {
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.nav-link a{
+  color: #000000;
 }
 </style>

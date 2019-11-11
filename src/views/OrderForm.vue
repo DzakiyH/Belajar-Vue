@@ -138,9 +138,9 @@ export default {
       this.getNow()
       this.pesanan.client = firebase.auth().currentUser.email
       this.pesanan.toko = this.merchant.nama
-      // this.transactionRef.add(this.pesanan)
-      console.log(this.pesanan)
+      // console.log(this.pesanan)
       this.transactionRef.add(this.pesanan)
+      this.$router.push('/transactions')
     },
     getNow(){
       const today = new Date();
