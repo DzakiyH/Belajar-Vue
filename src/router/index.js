@@ -7,6 +7,7 @@ import SignUp from '../views/SignUp.vue'
 import MerchantList from '../views/MerchantList.vue'
 import OrderForm from '../views/OrderForm.vue'
 import OrderList from '../views/OrderList.vue'
+import OrderDetailed from '../views/OrderDetailed.vue'
 import Card from '../views/Card.vue'
 
 Vue.use(VueRouter)
@@ -54,6 +55,14 @@ const routes = [
     path: '/transactions',
     name: 'Order List',
     component: OrderList,
+    meta:{
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/transaction/:id',
+    name: 'OrderDetail',
+    component: OrderDetailed,
     meta:{
       requiresAuth: true
     }

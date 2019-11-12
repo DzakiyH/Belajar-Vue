@@ -1,4 +1,6 @@
 <template>
+<div>
+    <NavBar/>
     <div class="login">
         <h1>Log In</h1>
         <input type="text" v-model="email" placeholder="Email"><br>
@@ -6,12 +8,17 @@
         <button v-on:click="connect">Connect</button>
         <p>Don't have an account? <router-link to="/signup">Create one</router-link></p>
     </div>
+</div>
 </template>
 
 <script>
 import firebase from 'firebase';
+import NavBar from '@/components/NavBar.vue'
 export default {
     name: 'login',
+    components:{
+        NavBar
+    },
     data(){
         return{
             email: '',
@@ -23,7 +30,6 @@ export default {
             firebase.auth().signInWithEmailAndPassword(this.email,this.password).then(
                 () => {
                     this.$router.push('home')
-                    this.$router.go(0)
                 },
                 (err) => {
                     alert('Oof ' + err)

@@ -17,7 +17,7 @@
   <hr>
 
   <div class="form">
-    <b-form>
+    <b-form @submit="onSubmit">
       <div class="file-input">
         <input type="file" @change="enableUpload" required>
         <div v-if="file">
@@ -67,8 +67,23 @@
             </b-form-group>
           </b-col>
         </b-row>
+
+        <b-row>
+          <b-col sm="4">
+            <label for="catatan" class="mt-3">Catatan:</label>
+          </b-col>
+          <b-col sm="8">
+            <b-form-textarea
+              id="catatan"
+              v-model="pesanan.catatan"
+              placeholder="Catatan tambahan..."
+              rows="3"
+              max-rows="6"
+            ></b-form-textarea>
+          </b-col>
+        </b-row>
       </div>
-      <button type="submit" @click="onSubmit">Submit</button>
+      <button type="submit">Submit</button>
     </b-form>
   </div>
 </b-container>
@@ -105,6 +120,9 @@ export default {
         warna:'',
         waktuPesan:'',
         harga:'0',
+        status: 'Sedang diproses',
+        fileName: '',
+        catatan:''
       }
     }
   },
@@ -135,6 +153,7 @@ export default {
           this.fileUrl = url;
           this.pesanan.fileRef = url;
           this.suksesUpload = 'Upload berhasil!'
+          this.pesanan.fileName = this.fileData.name
         });
       }
     );
